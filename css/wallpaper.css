@@ -1,0 +1,62 @@
+body {
+    /* ... kode background kamu yang lain ... */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    
+    /* TAMBAHKAN INI */
+    transition: background-image 1.2s ease-in-out; /* Durasi 1.2 detik agar terasa premium */
+    background-color: #000; /* Warna dasar hitam agar saat transisi tidak putih silau */
+}
+
+
+.wallpaper-controls {
+    position: fixed;
+    top: 180px; 
+    right: 20px;       /* Ini sudah saya pepetkan ke kanan (20px) */
+    left: auto !important; 
+    width: fit-content; /* Kunci agar bungkus tidak memenuhi lebar layar */
+    z-index: 5000;
+}
+
+.control-capsule {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 2px 5px;
+    display: flex; /* Ganti ke flex biasa karena induknya sudah fixed */
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.control-capsule button {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    padding: 2px;
+    
+}
+
+.control-capsule svg { width: 14px; height: 14px; }
+
+.v-divider {
+    width: 1px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.control-capsule input[type="checkbox"] {
+    cursor: pointer;
+    width: 13px;
+    height: 13px;
+    margin: 0;
+    accent-color: #007aff;
+}
+.control-capsule:hover {
+    background: rgba(255, 255, 255, 0.25); /* Sedikit lebih terang saat disentuh */
+}
+

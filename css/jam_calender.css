@@ -1,0 +1,192 @@
+/* Container Jam */
+.top-bar { position: fixed; top: 15px; right: 20px; z-index: 3000; }
+
+/* Gabungkan properti .clock-container dari beberapa blok agar konsisten */
+.clock-container {
+    position: absolute;
+    right: 0;
+    width: 90px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Kartu Kalender */
+.calendar-card {
+    position: absolute;
+    top: 200px;
+    right: 0px;
+    width: 280px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    display: none; /* Sembunyi di awal */
+    color: #333;
+    animation: none;
+}
+
+.cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.cal-header button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+
+.cal-header button:hover { background: #eee; }
+
+.cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* Hari Minggu Merah */
+.cal-weekdays .sun { color: #ff3b30; }
+
+.cal-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Membagi 7 kolom sama rata */
+    text-align: center;
+}
+
+.cal-day {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.cal-day:hover { background: #f0f0f0; }
+
+/* Hari Minggu Merah di Angka Tanggal */
+.cal-day.sunday { color: #ff3b30; font-weight: bold; }
+
+/* Tandai Hari Ini */
+.cal-day.today {
+    background: #007aff;
+    color: white !important;
+    font-weight: bold;
+}
+/* Container pembungkus agar jam digital & analog rapi */
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Lingkaran Jam Analog */
+/* Lingkaran Jam Analog */
+.analog-wrapper {
+    width: 60px;
+    height: 60px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    position: relative;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* Jarum-jarum jam */
+/* Jarum-jarum jam */
+.hour-hand, .min-hand, .sec-hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    border-radius: 5px;
+    transform: translateX(-50%) rotate(0deg);
+    z-index: 10;
+}
+
+.hour-hand {
+    width: 3px;
+    height: 15px;
+    background: rgb(0, 0, 0);
+}
+
+.min-hand {
+    width: 2px;
+    height: 22px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.sec-hand {
+    width: 1px;
+    height: 25px;
+    background: #ff3b30; /* Warna merah khas jarum detik Apple */
+}
+
+/* Titik Tengah */
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: rgb(255, 0, 0);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* Styling Umum Angka */
+.num {
+    position: absolute;
+    font-size: 10px;
+    font-weight: bold;
+    color: black; /* Sesuai request: Warna Hitam */
+    font-family: 'Arial', sans-serif;
+    width: 100%;
+    text-align: center;
+}
+
+/* Posisi Masing-masing Angka */
+.num-12 { top: 2px; }
+.num-3  { 
+    top: 50%; 
+    right: 2px; 
+    transform: translateY(-50%); 
+    text-align: right; 
+}
+.num-6  { bottom: 2px; }
+.num-9  { 
+    top: 50%; 
+    left: 2px; 
+    transform: translateY(-50%); 
+    text-align: left; 
+}
+
+/* Style untuk teks tanggal di bawah jam */
+.date-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8); /* Warna putih agak transparan */
+    margin-top: -5px; /* Sedikit merapat ke jam digital */
+    margin-bottom: 5px;
+    text-align: center;
+}

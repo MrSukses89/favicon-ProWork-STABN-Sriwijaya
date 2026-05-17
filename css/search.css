@@ -1,0 +1,70 @@
+.google-search-container {
+    position: fixed;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 580px;
+    z-index: 9999;
+}
+
+.google-search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(93, 92, 92, 0.456); /* Efek Kaca */
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(124, 124, 124, 0.507);
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Efek saat box di-hover atau diklik */
+.google-search-box:hover, .google-search-box:focus-within {
+    background: rgba(255, 255, 255, 0.95); /* Menjadi solid putih saat aktif mirip Google asli */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+}
+
+.google-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+#mainSearchInput {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #202124;
+    padding: 5px 0;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+#mainSearchInput::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.google-mic {
+    color: #1b1b1b;
+    cursor: pointer;
+    font-size: 18px;
+    padding-left: 15px;
+    transition: transform 0.2s;
+}
+
+.google-mic:hover {
+    transform: scale(1.2);
+}
+
+/* Menyesuaikan warna teks saat box masih transparan */
+.google-search-box:not(:focus-within) #mainSearchInput {
+    color: rgb(170, 170, 170);
+}
+.google-search-box:not(:focus-within) #mainSearchInput::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}

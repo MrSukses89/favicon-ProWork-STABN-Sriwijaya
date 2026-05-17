@@ -1,0 +1,70 @@
+/* Calculator Card */
+.calc-card {
+    position: fixed;
+    left: 100px;
+    bottom: 10px; /* Sesuaikan biar pas di samping ikon */
+    width: 240px;
+    background: rgba(9, 9, 9, 0.58);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 24px;
+    padding: 15px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.1);
+    display: none; /* Sembunyi awal */
+    z-index: 6000;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    animation: premiumSlide 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+
+  
+  
+    touch-action: none; /* Mencegah scroll layar saat geser di HP */
+    user-select: none;  /* Mencegah teks terpilih saat digeser */
+
+}
+
+.calc-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+#calc-display {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 24px;
+    text-align: right;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-size: 20px; /* Diperkecil sedikit agar muat jutaan */
+    overflow-x: auto; /* Biar bisa di-scroll kalau kepanjangan */
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.calc-buttons button {
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.calc-buttons button:hover { background: rgba(255, 255, 255, 0.2); }
+.btn-op { color: #000000 !important; font-weight: bold; }
+.btn-alt { color: #ff4b2b !important; }
+.btn-equal { background: #00c6ff !important; color: white !important; grid-row: span 2; }

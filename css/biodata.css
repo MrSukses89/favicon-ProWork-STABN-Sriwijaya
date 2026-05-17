@@ -1,0 +1,44 @@
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+#drive-pass:focus {
+    outline: 2px solid #00c6ff;
+    background: rgba(0,0,0,0.5);
+}
+#toggle-eye:hover {
+    opacity: 1 !important;
+    transition: 0.3s;
+}
+
+#toggle-eye {
+    user-select: none; /* Biar ikon nggak biru-biru pas diklik cepat */
+}
+/* Style Dasar & Hover */
+.close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding:10Px,12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease; /* Transisi halus */
+    outline: none;
+    border-radius: 50%;
+}
+
+/* Efek saat Kursor Menempel (Hover) */
+.close-btn:hover {
+    background: #f52500; /* Berubah jadi merah/orange */
+    color: white;
+    transform: scale(1.1); /* Membesar sedikit */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.627); /* Glow merah */
+}
+
+/* Efek saat Tombol Diklik (Active) */
+.close-btn:active {
+    transform: scale(0.9); /* Mengecil sedikit (efek membal) */
+    background: #c0392b; /* Warna lebih gelap saat ditekan */
+}

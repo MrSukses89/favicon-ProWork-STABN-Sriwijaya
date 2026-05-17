@@ -1,0 +1,232 @@
+/* =========================================
+   1. GLOBAL & BODY
+   ========================================= */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-size: cover;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+/* =========================================
+   2. SIDEBAR LEFT (NAVIGASI)
+   ========================================= */
+.sidebar-left {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 2000;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: 0.1s;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    
+}
+
+.nav-icon:hover {
+    background: rgba(255, 255, 255, 0.128);
+    transform: scale(1.1);
+}
+
+/* Tooltip Sidebar */
+.nav-item:hover .tooltip-side {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(10px);
+}
+
+/* =========================================
+   3. MENU CONTAINER (POPUP MENU)
+   ========================================= */
+.menu-container {
+    /* ... (posisi fixed, top, left, transform tetap sama seperti kodemu) ... */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* --- PERBAIKAN DI SINI --- */
+    display: none; /* Nanti di JS akan berubah jadi 'grid' atau 'flex' */
+    
+    /* Gunakan Flexbox supaya icon otomatis ke tengah jika cuma sedikit */
+    flex-wrap: wrap;       
+    justify-content: center; 
+    align-items: center;
+    gap: 30px; /* Jarak antar icon lebih lega lebih bagus */
+    
+    /* Jika tetap mau pakai Grid, tambahkan ini: */
+    /* justify-items: center; */
+    /* justify-content: center; */
+
+    width: auto;
+    min-width: 200px;     /* Biar gak terlalu ciut kalau icon cuma 1 */
+    max-width: 80vw;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    padding: 40px;        /* Padding ditambah biar lebih estetik */
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    z-index: 5000;
+}
+
+@keyframes zoomIn {
+    from { 
+        transform: translate(-50%, -50%) scale(0.5); /* Tetap jaga translate -50% */
+        opacity: 0; 
+    }
+    to { 
+        transform: translate(-50%, -50%) scale(1);   /* Tetap jaga translate -50% */
+        opacity: 1; 
+    }
+}
+/* Item di dalam Menu */
+.app-link {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.app-link:hover { transform: translateY(-5px); }
+
+.app-icon {
+    width: 100px; /* Ukuran standard icon */
+    height: 100px;
+    background: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.app-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.app-name { font-size: 12px; font-weight: 500; }
+
+/* =========================================
+   4. DOCK BOTTOM (NAVIGASI BAWAH)
+   ========================================= */
+.dock {
+    display: flex;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dock-hidden {
+    transform: translateY(150px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dock-icon {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dock-icon:hover { transform: scale(1.4) translateY(-10px); }
+
+.dock-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   5. TOOLTIP DOCK
+   ========================================= */
+.dock-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 70px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.dock-item:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-10px);
+}
+
+/* Panah Tooltip */
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.7) transparent transparent transparent;
+}
+
