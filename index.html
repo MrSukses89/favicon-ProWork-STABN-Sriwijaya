@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProWork Icon STABN SRIWIJAYA</title>
+    <link rel="icon" type="image/x-icon" href="ico/x-icon/Xicon.png">
+    <link rel="stylesheet" href="css/sidebar_Note.css">
+    <link rel="stylesheet" href="css/jam_calender.css">
+    <link rel="stylesheet" href="css/wallpaper.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/music_nav_left.css">
+    <link rel="stylesheet" href="css/calculator.css">
+    <link rel="stylesheet" href="css/biodata.css">
+    <link rel="stylesheet" href="css/note.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/search_2.css">
+    
+    
+<!--Note
+Perangcang Favicon ini Sri Andik Cahyono, S.Pd.B
+jika anda ingin mengembangkan dan digunakan pribadi, kami dipersilahkan. sesuaikan dengan kebutuhan anda, 
+jika ingin digunakan untuk keperluan komersil, harap hubungi kami terlebih dahulu untuk mendapatkan izin.
+silahkan email kami di andi8evo@gmail.com atau whatsapp 082153245087.
+
+
+Note-->
+    <style>
+    </style>
+</head>
+<body>
+ 
+<!--Search google-->
+<!----
+<div class="google-search-container">
+    <div class="google-search-box">
+        <div class="google-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+        </div> 
+        <input type="text" id="mainSearchInput" placeholder="Telusuri di Google atau ketik URL" autocomplete="off">
+        <div class="google-mic">
+            <i class="fas fa-microphone"></i>
+        </div>
+    </div>
+</div>
+-->
+
+<!--Wallpaper tombol-->
+<div class="wallpaper-controls">
+    <div class="control-capsule">
+        <button onclick="nextWallpaper()" title="Ganti Sekarang">
+            <svg viewBox="0 0 24 24" width="18" height="18">
+                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" fill="currentColor"/>
+            </svg>
+        </button>
+        <div class="v-divider"></div>
+        <input type="checkbox" id="autoWallpaperCheck" onchange="toggleAutoWallpaper()" title="Auto Ganti (10 Menit)">
+    </div>
+</div>
+
+<!--Clock calender-->    
+<div class="top-bar">
+   <div class="clock-container" onclick="toggleCalendar()">
+    <div id="digital-clock">00:00:00</div>
+    
+    <div id="date-display" class="date-text">Memuat tanggal...</div>
+    
+    <div class="analog-wrapper">
+        <span class="num num-12">12</span>
+        <span class="num num-3">3</span>
+        <span class="num num-6">6</span>
+        <span class="num num-9">9</span>
+        <div class="hour-hand"></div>
+        <div class="min-hand"></div>
+        <div class="sec-hand"></div>
+        <div class="center-dot"></div>
+    </div>
+</div>
+
+    <div id="calendar-panel" class="calendar-card">
+        
+        
+       <div class="cal-header">
+    <button onclick="changeMonth(event, -1)">❮</button>
+    <span id="cal-month-year"></span>
+    <button onclick="changeMonth(event, 1)">❯</button>
+    </div>
+
+
+
+        <div class="cal-weekdays">
+            <div class="sun">Min</div>
+            <div>Sen</div>
+            <div>Sel</div>
+            <div>Rab</div>
+            <div>Kam</div>
+            <div>Jum</div>
+            <div>Sab</div>
+        </div>
+        <div id="cal-days" class="cal-days"></div>
+    </div>
+</div>
+
+
+
+<!--Left Sidebar Biodata-->
+<div class="sidebar-left">
+    <div class="nav-item" style="position: relative;">
+        <span class="tooltip-side">Biodata Mahasiswa</span> 
+        <div class="nav-icon" onclick="toggleBiodata()">
+            <img src="ico/biodata/bio.png" alt="Bio" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
+
+        <div id="biodata-card" class="calc-card" style="display: none;">
+            <div class="calc-header">
+                <span>Private Access</span>
+                <button onclick="toggleBiodata()" class="close-btn">✖</button>
+                
+            </div>
+
+            <div style="text-align: center; padding: 10px;">
+                <div id="login-area">
+                    <div style="font-size: 30px; margin-bottom: 10px;">🔒</div>
+                    <p style="font-size: 12px; margin-bottom: 15px;">Masukkan Password</p>
+                    
+                    <div style="position: relative; width: 85%; margin: 0 auto;">
+                        <input type="password" id="drive-pass" placeholder="Password..." 
+                            style="width: 100%; padding: 10px; border-radius: 8px; border: none; background: rgba(0,0,0,0.3); color: white; text-align: center;">
+                        <span id="toggle-eye" onclick="togglePassword()" 
+                            style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">😎</span>
+                    </div>
+
+                    <button onclick="checkAccess()" 
+                        style="margin-top: 15px; width: 50%; padding: 10px; border-radius: 8px; border: none; background: #00c6ff; color: white; cursor: pointer; font-weight: bold;">
+                        Unlock
+                    </button>
+                    <p id="error-msg" style="color: #ff4b2b; font-size: 11px; margin-top: 10px; display: none;">Password Salah!</p>
+                </div>
+
+                <div id="drive-area" style="display: none; animation: fadeIn 0.5s ease;">
+                    <div style="font-size: 30px; margin-bottom: 10px;">📂</div>
+                    <h3 style="margin: 0; color: #fff;">Access Granted</h3>
+                    <p style="font-size: 11px; color: #00c6ff; margin-bottom: 15px;">Data Drive dibuka di tab baru.</p>
+                    
+                    <button onclick="goToDrive()" 
+                        style="display: block; width: 85%; margin: 0 auto; padding: 12px; background: #27ae60; border: none; color: white; border-radius: 10px; font-weight: bold; cursor: pointer;">
+                        Buka Ulang Biodata
+                    </button>
+                    
+                    <button onclick="lockAgain()" style="background: none; border: none; color: #ff4b2b; font-size: 10px; margin-top: 20px; cursor: pointer; text-decoration: underline;">
+                        Kunci Kembali
+                    </button>
+                </div>
+            </div>
+        </div> 
+    </div>
+
+
+
+    <div class="nav-item">
+        <span class="tooltip-side">Home</span> 
+        <div class="nav-icon" onclick="switchScene('home')">☸</div>
+    </div>
+    
+<!--Left Sidebar-->
+
+<!--Seacrh 2-->
+<div class="nav-item" style="position: relative;">
+    <span class="tooltip-side">Google Search</span> 
+    <div class="nav-icon" onclick="openGoogleSearch()">
+    <img src="ico/ai/g.png" alt="WhatsApp" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+    </div>
+</div>
+
+
+<!--search-->
+
+
+
+<!--Wa-->
+<div class="nav-item" style="position: relative;">
+    <span class="tooltip-side">WhatsApp</span>
+    <div class="nav-icon" onclick="window.open('https://web.whatsapp.com/')">
+        <img src="ico/kantor/wa2.png" alt="WhatsApp" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+
+    </div>
+</div>
+
+<!--Wa-->
+<!--Note-->
+<div class="nav-item" style="position: relative;">
+    <span class="tooltip-side">Note</span>
+    <div class="nav-icon" onclick="window.open('https://docs.google.com/document/d/1M7jRrAZrnhinN1GW2VGjGurXTV5goOm5FhPhi-9puS4/edit?usp=sharing')">
+       <div class="nav-icon">🔥</div>
+
+    </div>
+</div>
+
+<!--Note-->
+ <!--Music-->   
+<div class="nav-item" style="position: relative;"> 
+    <span class="tooltip-side">Music</span> 
+    <div class="nav-icon" onclick="toggleMusic()">🎵</div>
+
+    <div id="music-card" class="music-card">        
+        <div class="music-header">
+            <span></span>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <button onclick="togglePlaylist()" class="list-toggle-btn" id="list-arrow" title="Daftar Lagu">
+                    <span class="arrow-icon">➤</span>
+                </button>
+                <button onclick="toggleMusic()" class="close-music-btn" title="Tutup" 
+                    style="background: none; border: none; color: white; cursor: pointer; font-size: 20px; font-weight: bold; line-height: 1; padding: 5px; opacity: 0.7; transition: 0.3s;">
+                    ❎
+                </button>
+            </div>
+        </div>
+    
+        <div class="music-layout">
+            <div class="music-main-player">
+                <div class="album-art" id="album-bg">
+                    <div id="wave-container" class="wave-container">
+                        <div class="stroke"></div>
+                        <div class="stroke"></div>
+                        <div class="stroke"></div>
+                    </div>
+                    <span id="album-icon" style="font-size: 40px;">🎵</span>
+                </div>
+                
+                <div class="music-info">
+                    <h4 id="song-title">Pilih Lagu</h4>
+                    <p id="artist-name">Artis</p>
+                </div>
+                
+                <div class="music-controls">
+                    <button onclick="prevSong()">⏮</button>
+                    <button id="play-btn" class="play-btn" onclick="playMusic()">▶</button>
+                    <button onclick="nextSong()">⏭</button>
+                </div>
+
+                <div class="progress-container" onclick="seekAudio(event)">
+                    <div class="progress-bar">
+                        <div id="progress" class="progress"></div>
+                    </div>
+                    <div class="time-info">
+                        <span id="current-time">0:00</span>
+                        <span id="duration-time">0:00</span>
+                    </div>
+                </div>
+
+                <div class="volume-container">
+                    <span id="vol-icon" class="volume-icon" onclick="toggleMute()">🔊</span>
+                    <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="1" oninput="changeVolume(this.value)">
+                </div>
+            </div>
+
+            <div id="side-playlist" class="song-list-side">
+                <div class="search-wrapper">
+                    <input type="text" id="songSearch" placeholder="Cari judul lagu..." autocomplete="off">
+                    <i class="fas fa-search search-icon"></i>
+                </div>            
+                <div class="song-list-container">
+                    <ul id="playlist"></ul>
+                </div>
+            </div>
+        </div> </div> </div>
+
+<!--Music-->
+
+<!--calculator_cuan-->
+<div class="nav-item" style="position: relative;">
+    <span class="tooltip-side">Calculator</span>
+    <div class="nav-icon" onclick="toggleCalculator()">🧮</div>
+
+    <div id="calc-card" class="calc-card">
+        <div class="calc-header">
+            <span>Calculator</span>
+            <button onclick="toggleCalculator()" class="close-btn">×</button>
+        </div>
+        <input type="text" id="calc-display" readonly placeholder="0">
+        <div class="calc-buttons">
+            <button onclick="clearCalc()" class="btn-alt">C</button>
+            <button onclick="inputCalc('/')" class="btn-op">÷</button>
+            <button onclick="inputCalc('*')" class="btn-op">×</button>
+            <button onclick="backspaceCalc()" class="btn-alt">⌫</button>
+            
+            <button onclick="inputCalc('7')">7</button>
+            <button onclick="inputCalc('8')">8</button>
+            <button onclick="inputCalc('9')">9</button>
+            <button onclick="inputCalc('-')" class="btn-op">−</button>
+            
+            <button onclick="inputCalc('4')">4</button>
+            <button onclick="inputCalc('5')">5</button>
+            <button onclick="inputCalc('6')">6</button>
+            <button onclick="inputCalc('+')" class="btn-op">+</button>
+            
+            <button onclick="inputCalc('1')">1</button>
+            <button onclick="inputCalc('2')">2</button>
+            <button onclick="inputCalc('3')">3</button>
+            <button onclick="calculateResult()" class="btn-equal">=</button>
+            
+            <button onclick="inputCalc('0')" style="grid-column: span 2;">0</button>
+            <button onclick="inputCalc('.')">.</button>
+        </div>
+    </div>
+</div>
+    </div>
+
+    
+<!--Search Google-->
+<!-- Icon Search Google - Sebelah Kiri -->
+
+<!-- ====================== MODAL SEARCH GOOGLE ====================== -->
+<div id="googleSearchModal" class="search-modal">
+    <div class="search-modal-content">
+        <div class="search-header">
+            <span>🔍 Google Search</span>
+            <span class="close-btn" onclick="closeGoogleSearch()">✕</span>
+        </div>
+        
+        <!-- Search Box Google Style -->
+        <div class="google-search-box-modal">
+            <div class="google-icon-modal">
+                <svg viewBox="0 0 24 24" width="28" height="28">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+            </div>
+            <input type="text" id="modalSearchInput" placeholder="Telusuri di Google atau ketik URL" autocomplete="off" autofocus>
+        </div>
+        
+        <div class="search-footer">
+            <button onclick="performGoogleSearch()">Cari di Google</button>
+        </div>
+    </div>
+</div>
+
+<!--search Googgle-->
+<!--home_Aplication-->
+<div class="dock scene" id="dock-home">
+    
+    <div class="dock-item">
+        <span class="tooltip">Menu Kuliah</span>
+        <div class="dock-icon" onclick="toggleMenu('MenuKuliah')">☸</div>
+    </div>
+
+    <div class="dock-item">
+        <span class="tooltip">Application ASN</span> 
+        <div class="dock-icon" onclick="toggleMenu('application')">🌐</div>
+    </div>
+
+    <div class="dock-item">
+        <span class="tooltip">Media Social</span> 
+        <div class="dock-icon" onclick="toggleMenu('media_sosial-menu')">🍨</div>
+    </div>
+
+    <div class="dock-item">
+        <span class="tooltip">Ai Assistant</span>
+        <div class="dock-icon" onclick="toggleMenu('ai_assistant')">🤖</div>
+    </div>
+
+    <div class="dock-item">
+        <span class="tooltip">My Game</span>
+        <div class="dock-icon" onclick="toggleMenu('my_game')">🎮</div>
+    </div>
+
+    <div class="dock-item">
+        <span class="tooltip">Drive</span>
+        <div class="dock-icon" onclick="toggleMenu('drive')">💾</div>
+    </div>
+
+    <div class="dock-item">
+        <span class="tooltip">Office</span>
+        <div class="dock-icon" onclick="toggleMenu('office')">📚</div>
+    </div>
+
+    <div class="dock-item">
+        <span class="tooltip">News</span>
+        <div class="dock-icon" onclick="toggleMenu('news')">📰</div>
+    </div>
+</div>
+
+
+<!--STAB Sriwijaya-->
+<div id="MenuKuliah" class="menu-container" style="display: none;">
+    <a href="https://stabn-sriwijaya.ac.id/#" target="_blank" class="app-link">
+        <div class="app-icon" style="background:none">
+            <img src="ico/MenuKuliah/lolo1.png" alt="STAB Kertarajasa">
+        </div>
+        <span class="app-name">STAB Sriwijaya</span>
+    </a>
+
+    <a href="https://web.facebook.com/stabn.sriwijaya.71/?_rdc=1&_rdr#" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/media_sosial/facebook.png" alt="Ebook">
+        </div>
+        <span class="app-name">FB_Sriwijaya</span>
+    </a>
+
+    <a href="https://www.instagram.com/stabnsriwijaya/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/media_sosial/IG.jpg" alt="Ebook">
+        </div>
+        <span class="app-name">IG_Sriwijaya</span>
+    </a>
+
+    <a href="https://suttacentral.net/?lang=en" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/MenuKuliah/Sutra Central.PNG" alt="Sutta Central">
+        </div>
+        <span class="app-name">Sutta Central</span>
+    </a>
+
+    <a href="https://www.sasanasubhasita.org/berita-44-paritta-tuntutan-puja-bakti.html" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/MenuKuliah/paritta.jpg" alt="Paritta Online">
+        </div>
+        <span class="app-name">Paritta Online</span>
+    </a>
+
+
+    <a href="https://www.sariputta.com/dhammapada/indonesia" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/MenuKuliah/sariputta.PNG" alt="sitren">
+        </div>
+        <span class="app-name">Dhammapada Online</span>
+    </a>
+
+     <a href="https://samaggi-phala.or.id/naskah-dhamma/pengantar-vinaya/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/MenuKuliah/samagi.png" alt="Vinaya Online">
+        </div>
+        <span class="app-name">Vinaya - Samagi Phala</span>
+    </a>
+
+     <a href=" https://buddho.org/book/abhidhamma-studies/?gad_source=1&gad_campaignid=22586450096&gbraid=0AAAAACYUh4LPzVBWTk_0RlYz7FK2gr6Qi&gclid=Cj0KCQjwmunNBhDbARIsAOndKpkzpGwTThSLFIMK1MovzQlOH6BHf2Y8iPh2v3_ZQ2EA5_3QYhPdgZEaAvHgEALw_wcB" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/MenuKuliah/abhidhamma.PNG" alt="Abhidhamma">
+        </div>
+        <span class="app-name">Abhidhamma Online </span>
+    </a>
+    
+
+    <a href="https://yba.or.id/kalender-buddhis/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/MenuKuliah/Calender.png" alt="Calender">
+        </div>
+        <span class="app-name">Calender Buddhis </span>
+    </a>
+    
+      <a href="pdf/paritta.pdf" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/MenuKuliah/parittaII.PNG" alt="Paritta">
+        </div>
+        <span class="app-name">Paritta Offline</span>
+    </a>
+
+    <a href="pdf/dhammapada.pdf" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/MenuKuliah/r_dhamma.png" alt="dhammapada">
+        </div>
+        <span class="app-name">Dhammapada Offline</span>
+    </a>
+
+    <a href="pdf/vinaya.pdf" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/MenuKuliah/vinaya.PNG" alt="vinaya">
+        </div>
+        <span class="app-name">Vinaya Offline</span>
+    </a>
+
+    
+
+
+
+</div>
+
+
+<!--aplication-->
+<div id="application" class="menu-container" style="display: none;">
+   
+    <a href="https://pusaka-v3.kemenag.go.id/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: #ffffff;"> <img src="ico/kantor/pusaka.jpg" alt="pusaka">
+        </div>
+        <span class="app-name">Pusaka</span>
+    </a>
+    
+    <a href="https://srikandi.arsip.go.id/auth/login" target="_blank" class="app-link">
+        <div class="app-icon" style="background: #ffffff;"> <img src="ico/kantor/srikandi.png" alt="srikandi">
+        </div>
+        <span class="app-name">Srikandi</span>
+    </a>
+
+       <a href="https://asndigital.bkn.go.id/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: #25D366;"> <img src="ico/kantor/siasn-white.jpg" alt="My ASN">
+        </div>
+        <span class="app-name">My Asn</span>
+    </a>
+
+    <a href="https://sso.kemenag.go.id/auth/signin" target="_blank" class="app-link">
+        <div class="app-icon" style="background: #25D366;"> <img src="ico/kantor/sso.png" alt="Ssso Kemenag">
+        </div>
+        <span class="app-name">Sso Kemenag</span>
+    </a>
+
+ <a href="https://coretaxdjp.pajak.go.id/identityproviderportal/account/login" target="_blank" class="app-link">
+        <div class="app-icon" style="background: #25D366;"> <img src="ico/kantor/Coretaxe.jpg" alt="coretax">
+        </div>
+        <span class="app-name">Coretaxdjp</span>
+    </a>
+
+    <a href="https://sakti.kemenkeu.go.id/LL-Zg7BviiuXviBn9TvfiA" target="_blank" class="app-link">
+        <div class="app-icon" style="background:white"> <img src="ico/kantor/kemenkeu.png" alt="kemenkeu">
+        </div>
+        <span class="app-name">Kemenkeu</span>
+    </a>
+
+    <a href="https://spanint.kemenkeu.go.id/spanint/latest/app/" target="_blank" class="app-link">
+        <div class="app-icon">
+            <img src="ico/kantor/om-span.PNG" alt="om-span">
+        </div>
+        <span class="app-name">Om-Span</span>
+    </a>
+
+    <a href="https://digit.kemenkeu.go.id/oauth2?response_type=code&client_id=421aa90e079fa326b6494f812ad13e79&redirect_uri=https://digitms.kemenkeu.go.id/oauth2callback&state=1770951849"target="_blank" class="app-link">
+       <div class="app-icon">
+        <img src="ico/kantor/logo_digit_horizontal.png" alt="digit">
+       </div>
+       <span class="app-name">Digit</span>
+    </a>
+
+    <a href="https://myintress.kemenkeu.go.id/" target="_blank" class="app-link">
+        <div class="app-icon">
+            <img src="ico/kantor/My_Interest.PNG" alt="myintress">
+        </div>
+        <span class="app-name">My Interess</span>
+    </a>
+
+     <a href="https://zoom.us/id/signin#/login" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/Drive/zoom.png" alt="zoom">
+        </div>
+        <span class="app-name">Zoom</span>
+    </a>
+</div>
+<!--
+<div id="home-menu" class="menu-container" style="display: none;">
+    </div>
+-->
+<!--home menu 2-->
+
+<div id="media_sosial-menu" class="menu-container" style="display: none;">
+    <a href="https://web.facebook.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/media_sosial/facebook.png" alt="facebook">
+        </div>
+        <span class="app-name">Facebook</span>
+    </a>
+    
+    <a href="https://www.instagram.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: #0078d4;">
+            <img src="ico/media_sosial/IG.jpg" alt="Instragram">
+        </div>
+        <span class="app-name">Instagram</span>
+    </a>
+
+    <a href="https://x.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/media_sosial/x.png" alt="X">
+        </div>
+        <span class="app-name">X-Tweeter</span>
+    </a>
+
+    <a href="https://www.tiktok.com/id-ID/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/media_sosial/Tiktok.png" alt="tiktok">
+        </div>
+        <span class="app-name">Tiktok</span>
+    </a>
+
+    <a href="https://www.youtube.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/media_sosial/youtube.png" alt="youtube">
+        </div>
+        <span class="app-name">Youtube</span>
+    </a>
+
+    <a href="https://www.chordtela.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/media_sosial/Cortela.png" alt="cortelaChord">
+        </div>
+        <span class="app-name">Chordtela</span>
+    </a>
+
+    <a href="https://id.savefrom.net/1-cara-mengunduh-video-youtube-168Wi.html" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/media_sosial/Download.png" alt="Donwload YT">
+        </div>
+        <span class="app-name">Download YT</span>
+    </a>
+
+    <a href="https://shopee.co.id/?gad_source=1&gad_campaignid=1558961180&gbraid=0AAAAADPpU81P_z-KuFqU6JV-mu1N03S3Y&gclid=CjwKCAiA1obMBhAbEiwAsUBbIlitr-SBkUld8fzUvKFYNMFJ-3F45XLfAdiNpMFHAS_dfAEEFHe33RoCjtQQAvD_BwE"
+        target="_blank" class="app-link">
+   
+        <div class="app-icon" style="background: white;">
+            <img src="ico/media_sosial/shoppe.png" alt="shopee">
+        </div>
+        <span class="app-name">shopee</span>
+    </a>
+
+    <a href="https://fmhy.net/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: white;">
+            <img src="ico/media_sosial/fmhy.png" alt="fmhy">
+        </div>
+        <span class="app-name">fmhy</span>
+    </a>
+
+    <a href="https://www.jango.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/media_sosial/jango.png" alt="jango">
+        </div>
+        <span class="app-name">Jango.com</span>
+    </a>
+
+ 
+ 
+</div>
+
+<!--home menu 3-->
+
+<div id="ai_assistant" class="menu-container" style="display: none;">
+    <a href="https://chatgpt.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: rgba(255, 255, 255, 0);">
+            <img src="ico/ai/chat-gpt.png" alt="facebook">
+        </div>
+        <span class="app-name">chat-gpt</span>
+    </a>
+
+    <a href="https://copilot.microsoft.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+        <img src="ico/ai/copilot.png" alt="copilot">
+        </div>
+        <span class="app-name">Copilot</span>
+    </a>
+
+    <a href="https://www.meta.ai/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/ai/meta.png" alt="meta">
+        </div>
+        <span class="app-name">Meta</span>
+    </a>
+
+    <a href="https://gemini.google.com/app" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/ai/gemini.png" alt="gemini">
+        </div>
+        <span class="app-name">gemini</span>
+    </a>
+
+    <a href="https://www.perplexity.ai/?login-source=oneTapHome&login-new=false" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/ai/perplexity.PNG" alt="perplexity">
+        </div>
+        <span class="app-name">perplexity</span>
+
+
+
+
+    <a href="https://www.canva.com/account-checkup?flow=webauthn&redirect=%2Fid_id%2F" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/ai/canva-icon.png" alt="canva">
+        </div>
+        <span class="app-name">canva</span>
+    </a>
+
+    <a href="https://vscode.dev/?vscode-lang=id-id" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+        <img src="ico/ai/vsstudio.png" alt="vscode">
+        </div>
+        <span class="app-name">VS Code</span>
+    </a>
+
+    <a href="https://www.photopea.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/ai/Photopea.PNG" alt="photopea">
+        </div>
+        <span class="app-name">photopea</span>
+    </a>
+
+    <!--
+    <a href="https://github.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/ai/github-logo.png" alt="github">
+        </div>
+        <span class="app-name">github</span>
+    </a> -->
+</div>
+
+<!--home menu 4-->
+<div id="my_game" class="menu-container" style="display: none;">
+    <a href="https://www.gamesgames.com/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/game/ping.png" alt="My Game">
+        </div>
+        <span class="app-name">My Game</span>
+    </a>
+
+    <a href="https://www.chess.com/id/play" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/game/catur.png" alt="catur">
+        </div>
+        <span class="app-name">catur</span>
+    </a>
+</div>
+
+<!--Home menu 5-->
+
+<div id="drive" class="menu-container" style="display: none;">
+    <a href="https://drive.google.com/drive/home" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/Drive/R.png" alt="g_drive">
+        </div>
+        <span class="app-name">Google Drive</span>
+    </a>
+
+    <a href="https://www.microsoft.com/id-id/microsoft-365/onedrive/online-cloud-storage" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/Drive/oneDrive.png" alt="one drive">
+        </div>
+        <span class="app-name">One Drive</span>
+    </a>
+
+    <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;"> 
+            <img src="ico/Drive/gmail-icon-free-png.png" alt="gmail">
+        </div>
+        <span class="app-name">Gmail</span>
+    </a>
+
+    <a href="https://translate.google.com/?sl=en&tl=id&op=translate" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/Drive/google translate.png" alt="g_translate">
+        </div>
+        <span class="app-name">Goggle translate</span>
+    </a>
+
+     <a href="https://www.google.com/maps/@-0.4930432,117.1617682,3264m/data=!3m1!1e3?authuser=0&entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/Drive/maps.png" alt="google maps">
+        </div>
+        <span class="app-name">Google Maps</span>
+    </a>
+
+</div>
+
+<div id="office" class="menu-container" style="display: none;">
+    <a href="https://docs.google.com/document/d/1EkfZDF6DXsVh1ICTd_E3WkGAcNLFF_1O_-7wAV0ImEQ/edit?hl=id&tab=t.0" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/office/gdocs.svg" alt="G_Docs">
+        </div>
+        <span class="app-name">Google Docs</span>
+    </a>
+
+    <a href="https://docs.google.com/spreadsheets/u/0/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/office/gsheet.svg" alt="G_Sheet">
+        </div>
+        <span class="app-name">Google Sheet</span>
+    </a>
+
+    <a href="https://docs.google.com/presentation/u/0/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/office/gslides.svg" alt="G_Slide">
+        </div>
+        <span class="app-name">Google Slide</span>
+    </a>
+
+    <a href="https://bitly.com/a/sign_in?rd=%2FBl53753Hu1w%2Fhome" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/office/bitly.png" alt="Bitly">
+        </div>
+        <span class="app-name">Bitly</span>
+    </a>
+
+    <a href="https://word.cloud.microsoft/open/onedrive/?docId=143EA9686221F233%21scb751aea93a84918b8eab81406af599f&driveId=143EA9686221F233" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/office/word.svg" alt="Word cloud">
+        </div>
+        <span class="app-name">Word</span>
+    </a>
+
+    <a href="https://excel.cloud.microsoft/?wdOrigin=MARKETING.FREE.GO-TO-EXCEL" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/office/exel.svg" alt="Excel">
+        </div>
+        <span class="app-name">Excel</span>
+    </a>
+
+    <a href="https://powerpoint.cloud.microsoft/?wdOrigin=MARKETING.FREE.GO-TO-POWERPOINT" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/office/pwpoin.png" alt="Power Point">
+        </div>
+        <span class="app-name">Power Point</span>
+    </a>
+</div>
+
+<!--Home menu 5 news-->
+
+<div id="news" class="menu-container" style="display: none;">
+    <a href="https://kemenag.go.id/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/news/kemenag.png" alt="kemenag RI">
+        </div>
+        <span class="app-name">Kemenag RI</span>
+    </a>
+
+    <!--
+    <a href="https://kaltim.kemenag.go.id/" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/news/kemenag_kaltim.png" alt="Kemenag Kaltim">
+        </div>
+        <span class="app-name">Kemenag Kaltim</span>
+    </a>
+-->
+    <a href="https://news.google.com/home?hl=id&gl=ID&ceid=ID:id" target="_blank" class="app-link">
+        <div class="app-icon" style="background: none;">
+            <img src="ico/news/goggle berita.png" alt="google news">
+        </div>
+        <span class="app-name">Google News</span>
+    </a>
+</div>
+
+<!--Agenda dan catatan-->
+
+<div class="note-launcher" onclick="toggleNote()">📝</div>
+
+    <div class="note-box" id="noteBox">
+        <div class="note-header">
+            <span>AGENDA & CATATAN</span>
+            <span style="cursor:pointer" onclick="toggleNote()">✕</span>
+        </div>
+        <textarea id="noteInput" placeholder="Tulis sesuatu..."></textarea>
+        <div class="note-footer">
+            <button onclick="clearNote()" style="background:#ff5252; color:white; border:none; border-radius:3px; cursor:pointer;">Hapus</button>
+            <span id="status">Tersimpan</span>
+ </div>
+
+
+
+<script src="js/sidebar_note.js"></script>
+<script src="js/calender.js"></script>
+<script src="js/wallpaper.js"></script>
+<script src="js/music_nav_left.js"></script>
+<script src="js/calculator.js"></script>
+<script src="js/biodata.js"></script>
+<script src="js/search_google.js"></script>
+<script src="js/search_2.js"></script>
+
+
+
+
+<script>
+  
+</script>
+</body>
+</html>
